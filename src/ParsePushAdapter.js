@@ -13,7 +13,7 @@ export default class ParsePushAdapter {
   supportsPushTracking = true;
 
   constructor(pushConfig = {}) {
-    this.validPushTypes = ['ios', 'osx', 'tvos', 'android', 'fcm'];
+    this.validPushTypes = ['ios', 'osx', 'tvos', 'android', 'fcm', 'pushy'];
     this.senderMap = {};
     // used in PushController for Dashboard Features
     this.feature = {
