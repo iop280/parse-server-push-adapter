@@ -3,6 +3,7 @@ import Parse from 'parse';
 import log from 'npmlog';
 import APNS from './APNS';
 import GCM from './GCM';
+import Pushy from './Pushy';
 import { classifyInstallations } from './PushAdapterUtils';
 
 const LOG_PREFIX = 'parse-server-push-adapter';
@@ -33,6 +34,9 @@ export default class ParsePushAdapter {
           break;
         case 'android':
         case 'fcm':
+          this.senderMap[pushType] = new GCM(pushConfig[pushType]);
+          break;
+        case 'pushy':
           this.senderMap[pushType] = new GCM(pushConfig[pushType]);
           break;
       }
